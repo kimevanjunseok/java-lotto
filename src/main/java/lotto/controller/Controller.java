@@ -1,5 +1,8 @@
 package lotto.controller;
 
+import lotto.domain.Money;
+import lotto.view.InputView;
+
 public class Controller {
 
     private static Controller controller = new Controller();
@@ -12,6 +15,6 @@ public class Controller {
     }
 
     public void execute() {
-
+        Money money = Money.from(InputView.inputMoney());
     }
 }

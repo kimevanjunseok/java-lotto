@@ -17,6 +17,7 @@ public class Controller {
 
     public void execute() {
         Money money = Money.from(InputView.inputMoney());
-        Count count = Count.from(InputView.inputCount());
+        Count manualCount = Count.from(InputView.inputManualCount());
+        Count autoCount = Count.from(manualCount.calculateAutoCount(money));
     }
 }

@@ -30,4 +30,8 @@ public class Money {
             throw new IllegalArgumentException();
         }
     }
+
+    public int calculateAutoCount(int count) {
+        return (int) (money / MONEY_UNIT) - count;
+    }
 }

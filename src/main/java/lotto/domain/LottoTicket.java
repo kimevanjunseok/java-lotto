@@ -3,17 +3,17 @@ package lotto.domain;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Ticket {
+public class LottoTicket {
 
     private final List<LottoNumber> ticket;
 
-    private Ticket(List<LottoNumber> ticket) {
+    private LottoTicket(List<LottoNumber> ticket) {
         this.ticket = new ArrayList<>(ticket);
     }
 
-    public static Ticket from(List<LottoNumber> ticket) {
+    public static LottoTicket from(List<LottoNumber> ticket) {
         validateSize(ticket);
-        return new Ticket(ticket);
+        return new LottoTicket(ticket);
     }
 
     private static void validateSize(List<LottoNumber> ticket) {

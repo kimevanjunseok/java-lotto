@@ -7,7 +7,7 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-public class TicketTest {
+public class LottoTicketTest {
 
     @Test
     void validate_size() {
@@ -27,7 +27,7 @@ public class TicketTest {
             LottoNumber.from(5)
         );
 
-        assertThatThrownBy(() -> Ticket.from(ticket1)).isInstanceOf(IllegalArgumentException.class);
-        assertThatThrownBy(() -> Ticket.from(ticket2)).isInstanceOf(IllegalArgumentException.class);
+        assertThatThrownBy(() -> LottoTicket.from(ticket1)).isInstanceOf(IllegalArgumentException.class);
+        assertThatThrownBy(() -> LottoTicket.from(ticket2)).isInstanceOf(IllegalArgumentException.class);
     }
 }

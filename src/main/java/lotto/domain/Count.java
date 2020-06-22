@@ -18,4 +18,8 @@ public class Count {
             throw new IllegalArgumentException();
         }
     }
+
+    public int calculateAutoCount(Money money) {
+        return money.calculateAutoCount(count);
+    }
 }

@@ -22,4 +22,8 @@ public class Count {
     public int calculateAutoCount(Money money) {
         return money.calculateAutoCount(count);
     }
+
+    public int getCount() {
+        return count;
+    }
 }

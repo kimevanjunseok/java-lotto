@@ -32,4 +32,12 @@ public enum RankType {
         boolean bonus = winningLotto.hasBonusByLottoTicket(lottoTicket);
         return this.match == match && this.bonus == bonus;
     }
+
+    public int getPrize() {
+        return prize;
+    }
+
+    public int getMatch() {
+        return match;
+    }
 }

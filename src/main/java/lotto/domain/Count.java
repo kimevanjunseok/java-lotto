@@ -26,4 +26,8 @@ public class Count {
     public int getCount() {
         return count;
     }
+
+    public boolean isNotZero() {
+        return count != 0;
+    }
 }

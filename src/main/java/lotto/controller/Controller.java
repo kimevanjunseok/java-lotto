@@ -4,6 +4,7 @@ import lotto.domain.*;
 import lotto.view.InputView;
 import lotto.view.OutputView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Controller {
@@ -25,11 +26,15 @@ public class Controller {
         OutputView.printLottoTickets(manual, auto, lottoTickets);
 
         WinningLotto winningLotto = createWinningLotto();
-        Result result = Result.from(lottoTickets.matchCountAll(winningLotto));
+        LottoResult lottoResult = LottoResult.from(lottoTickets.matchCountAll(winningLotto));
+        OutputView.printLottoResult(lottoResult);
     }
 
     private LottoTickets createLottoTickets(Count manual, Count auto) {
-        List<LottoTicket> manualLottoTickets = createManualTickets(manual);
+        List<LottoTicket> manualLottoTickets = new ArrayList<>();
+        if (manual.isNotZero()) {
+            manualLottoTickets = createManualTickets(manual);
+        }
         List<LottoTicket> autoLottoTickets = createAutoTickets(auto);
         return LottoTickets.of(manualLottoTickets, autoLottoTickets);
     }

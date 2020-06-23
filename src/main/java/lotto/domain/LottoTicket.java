@@ -27,6 +27,12 @@ public class LottoTicket {
         return ticket.contains(lottoNumber);
     }
 
+    public int matchCount(LottoTicket lottoTicket) {
+        return (int) ticket.stream()
+                .filter(lottoTicket::contains)
+                .count();
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

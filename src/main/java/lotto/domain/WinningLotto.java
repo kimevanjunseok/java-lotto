@@ -31,4 +31,12 @@ public class WinningLotto {
 
         return new WinningLotto(LottoTicket.from(ticket), LottoNumber.from(bonusBall));
     }
+
+    public int getMatchCount(LottoTicket lottoTicket) {
+        return winningLotto.matchCount(lottoTicket);
+    }
+
+    public boolean hasBonusByLottoTicket(LottoTicket lottoTicket) {
+        return lottoTicket.contains(bonusBall);
+    }
 }

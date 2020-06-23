@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 
 public class OutputView {
 
-    public static void printLottoTickets(Count manual, Count auto, LottoTickets lottoTickets) {
+    public static void printLottoTickets(LottoCount manual, LottoCount auto, LottoTickets lottoTickets) {
         System.out.printf("수동으로 %d장, 자동으로 %d개를 구매했습니다.\n", manual.getCount(), auto.getCount());
         for (LottoTicket lottoTicket : lottoTickets.getLottoTickets()) {
             printLottoTicket(lottoTicket);

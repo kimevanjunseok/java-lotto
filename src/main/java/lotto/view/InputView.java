@@ -1,6 +1,6 @@
 package lotto.view;
 
-import lotto.domain.Count;
+import lotto.domain.LottoCount;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,10 +19,10 @@ public class InputView {
         return Integer.parseInt(scanner.nextLine());
     }
 
-    public static List<String> inputManualLotto(Count manualCount) {
+    public static List<String> inputManualLotto(LottoCount manualLottoCount) {
         System.out.println("수동으로 구매할 번호를 입력해 주세요.");
         List<String> lottoTickets = new ArrayList<>();
-        for (int i = 0; i < manualCount.getCount(); i++) {
+        for (int i = 0; i < manualLottoCount.getCount(); i++) {
             lottoTickets.add(scanner.nextLine());
         }
         return lottoTickets;

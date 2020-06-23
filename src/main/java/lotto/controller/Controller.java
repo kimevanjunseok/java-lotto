@@ -19,8 +19,8 @@ public class Controller {
 
     public void execute() {
         Money money = Money.from(InputView.inputMoney());
-        Count manual = Count.from(InputView.inputManualCount());
-        Count auto = Count.from(manual.calculateAutoCount(money));
+        LottoCount manual = LottoCount.from(InputView.inputManualCount());
+        LottoCount auto = LottoCount.from(manual.calculateAutoCount(money));
 
         LottoTickets lottoTickets = createLottoTickets(manual, auto);
         OutputView.printLottoTickets(manual, auto, lottoTickets);
@@ -30,7 +30,7 @@ public class Controller {
         OutputView.printLottoResult(lottoResult);
     }
 
-    private LottoTickets createLottoTickets(Count manual, Count auto) {
+    private LottoTickets createLottoTickets(LottoCount manual, LottoCount auto) {
         List<LottoTicket> manualLottoTickets = new ArrayList<>();
         if (manual.isNotZero()) {
             manualLottoTickets = createManualTickets(manual);
@@ -39,13 +39,13 @@ public class Controller {
         return LottoTickets.of(manualLottoTickets, autoLottoTickets);
     }
 
-    private List<LottoTicket> createManualTickets(Count manual) {
+    private List<LottoTicket> createManualTickets(LottoCount manual) {
         List<String> manualTickets = InputView.inputManualLotto(manual);
         LottoTicketFactory manualFactory = ManualLottoTicketFactory.from(manualTickets);
         return manualFactory.create();
     }
 
-    private List<LottoTicket> createAutoTickets(Count auto) {
+    private List<LottoTicket> createAutoTickets(LottoCount auto) {
         LottoTicketFactory autoFactory = AutoLottoTicketFactory.from(auto);
         return autoFactory.create();
     }

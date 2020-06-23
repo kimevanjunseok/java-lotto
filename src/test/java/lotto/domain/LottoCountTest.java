@@ -5,18 +5,18 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-public class CountTest {
+public class LottoCountTest {
 
     @Test
     void validate_Negative() {
-        assertThatThrownBy(() -> Count.from(-1))
+        assertThatThrownBy(() -> LottoCount.from(-1))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
     void calculateAutoCount() {
         Money money = Money.from(10_000);
-        Count count = Count.from(3);
-        assertThat(count.calculateAutoCount(money)).isEqualTo(7);
+        LottoCount lottoCount = LottoCount.from(3);
+        assertThat(lottoCount.calculateAutoCount(money)).isEqualTo(7);
     }
 }

@@ -1,16 +1,16 @@
 package lotto.domain;
 
-public class Count {
+public class LottoCount {
 
     private int count;
 
-    private Count(int count) {
+    private LottoCount(int count) {
         validateNegative(count);
         this.count = count;
     }
 
-    public static Count from(int count) {
-        return new Count(count);
+    public static LottoCount from(int count) {
+        return new LottoCount(count);
     }
 
     private void validateNegative(int count) {

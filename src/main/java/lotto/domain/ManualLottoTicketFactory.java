@@ -6,6 +6,8 @@ import java.util.stream.Collectors;
 
 public class ManualLottoTicketFactory implements LottoTicketFactory {
 
+    private static final String COMMA = ",";
+
     private List<String> tickets;
 
     private ManualLottoTicketFactory(List<String> tickets) {
@@ -25,7 +27,7 @@ public class ManualLottoTicketFactory implements LottoTicketFactory {
     }
 
     private LottoTicket ofLottoTicket(String ticket) {
-        List<String> splitTicket = Arrays.asList(ticket.split(","));
+        List<String> splitTicket = Arrays.asList(ticket.split(COMMA));
         List<LottoNumber> lottoTicket = splitTicket.stream()
                 .map(String::trim)
                 .map(number -> LottoNumber.from(Integer.parseInt(number)))

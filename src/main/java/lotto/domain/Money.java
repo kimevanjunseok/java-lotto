@@ -1,7 +1,9 @@
 package lotto.domain;
 
 public class Money {
+
     private static final int MONEY_UNIT = 1_000;
+    private static final int PERCENT = 100;
 
     private long money;
 
@@ -32,10 +34,14 @@ public class Money {
     }
 
     public int calculateAutoCount(int count) {
-        return (int) (money / MONEY_UNIT) - count;
+        int autoCount = (int) (money / MONEY_UNIT) - count;
+        if (autoCount < 0) {
+            throw new IllegalArgumentException();
+        }
+        return autoCount;
     }
 
     public long calculateYield(long totalPrize) {
-        return totalPrize * 100 / money;
+        return totalPrize * PERCENT / money;
     }
 }

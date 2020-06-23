@@ -2,10 +2,11 @@ package lotto.domain;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
 
 public class WinningLotto {
+
+    private static final String COMMA = ",";
 
     private final LottoTicket winningLotto;
     private final LottoNumber bonusBall;
@@ -23,7 +24,7 @@ public class WinningLotto {
     }
 
     public static WinningLotto from(String winningNumbers, int bonusBall) {
-        List<String> lottoNumbers = Arrays.asList(winningNumbers.split(","));
+        List<String> lottoNumbers = Arrays.asList(winningNumbers.split(COMMA));
         List<LottoNumber> ticket = lottoNumbers.stream()
                 .map(String::trim)
                 .map(number -> LottoNumber.from(Integer.parseInt(number)))

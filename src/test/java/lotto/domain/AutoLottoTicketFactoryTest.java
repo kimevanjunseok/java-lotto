@@ -10,8 +10,8 @@ public class AutoLottoTicketFactoryTest {
 
     @Test
     void create() {
-        Count auto = Count.from(3);
-        AutoLottoTicketFactory autoLottoTicketFactory = AutoLottoTicketFactory.from(auto);
+        LottoCount autoCount = LottoCount.from(3);
+        AutoLottoTicketFactory autoLottoTicketFactory = AutoLottoTicketFactory.from(autoCount);
         List<LottoTicket> lottoTickets = autoLottoTicketFactory.create();
         assertThat(lottoTickets).hasSize(3);
     }

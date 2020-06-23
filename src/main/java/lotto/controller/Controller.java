@@ -25,7 +25,7 @@ public class Controller {
         OutputView.printLottoTickets(manual, auto, lottoTickets);
 
         WinningLotto winningLotto = createWinningLotto();
-
+        Result result = Result.from(lottoTickets.matchCountAll(winningLotto));
     }
 
     private LottoTickets createLottoTickets(Count manual, Count auto) {

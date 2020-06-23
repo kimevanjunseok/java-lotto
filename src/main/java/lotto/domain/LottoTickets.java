@@ -1,7 +1,9 @@
 package lotto.domain;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class LottoTickets {
 
@@ -9,6 +11,10 @@ public class LottoTickets {
 
     private LottoTickets(List<LottoTicket> lottoTickets) {
         this.lottoTickets = lottoTickets;
+    }
+
+    public static LottoTickets from(List<LottoTicket> tickets) {
+        return new LottoTickets(tickets);
     }
 
     public static LottoTickets of(List<LottoTicket> manualTickets, List<LottoTicket> autoTickets) {
@@ -20,5 +26,23 @@ public class LottoTickets {
 
     public List<LottoTicket> getLottoTickets() {
         return lottoTickets;
+    }
+
+    public Map<RankType, Integer> matchCountAll(WinningLotto winningLotto) {
+        Map<RankType, Integer> countRankType = initCountRankType();
+        for (LottoTicket lottoTicket : lottoTickets) {
+            RankType type = RankType.findType(lottoTicket, winningLotto);
+            int count = countRankType.get(type);
+            countRankType.put(type, count + 1);
+        }
+        return countRankType;
+    }
+
+    private Map<RankType, Integer> initCountRankType() {
+        Map<RankType, Integer> countRankType = new HashMap<>();
+        for (RankType type : RankType.values()) {
+            countRankType.put(type, 0);
+        }
+        return countRankType;
     }
 }

@@ -3,11 +3,11 @@ package lotto.domain;
 import java.util.Arrays;
 
 public enum RankType {
-    FIRST(2_000_000_000, 6, false),
-    SECOND(30_000_000, 5, true),
-    THIRD(1_500_000, 5, false),
-    FOURTH(50_000, 4, false),
     FIFTH(5_000, 3, false),
+    FOURTH(50_000, 4, false),
+    THIRD(1_500_000, 5, false),
+    SECOND(30_000_000, 5, true),
+    FIRST(2_000_000_000, 6, false),
     NONE(0, 0, false);
 
     private final int prize;
@@ -22,12 +22,12 @@ public enum RankType {
 
     public static RankType findType(LottoTicket lottoTicket, WinningLotto winningLotto) {
         return Arrays.stream(RankType.values())
-                .filter(type -> type.isRank(lottoTicket, winningLotto))
+                .filter(type -> type.isCorrectRank(lottoTicket, winningLotto))
                 .findFirst()
                 .orElse(NONE);
     }
 
-    private boolean isRank(LottoTicket lottoTicket, WinningLotto winningLotto) {
+    private boolean isCorrectRank(LottoTicket lottoTicket, WinningLotto winningLotto) {
         int match = winningLotto.getMatchCount(lottoTicket);
         boolean bonus = winningLotto.hasBonusByLottoTicket(lottoTicket);
         return this.match == match && this.bonus == bonus;

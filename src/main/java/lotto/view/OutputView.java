@@ -22,6 +22,7 @@ public class OutputView {
     public static void printLottoResult(LottoResult lottoResult) {
         System.out.println("당첨 통계\n---------");
         printRankResult(lottoResult);
+        printYield(lottoResult);
     }
 
     private static void printRankResult(LottoResult lottoResult) {
@@ -50,5 +51,9 @@ public class OutputView {
 
     private static void printRankCount(LottoResult lottoResult, RankType type) {
         System.out.println(lottoResult.getRankCount(type) + "개");
+    }
+
+    private static void printYield(LottoResult lottoResult) {
+        System.out.println("총 수익률은 30%입니다.");
     }
 }

@@ -24,6 +24,9 @@ public class Controller {
 
         LottoTickets lottoTickets = createLottoTickets(manual, auto);
         OutputView.printLottoTickets(manual, auto, lottoTickets);
+
+        WinningLotto winningLotto = createWinningLotto();
+
     }
 
     private LottoTickets createLottoTickets(Count manual, Count auto) {
@@ -41,5 +44,11 @@ public class Controller {
     private List<LottoTicket> createAutoTickets(Count auto) {
         LottoTicketFactory autoFactory = AutoLottoTicketFactory.from(auto);
         return autoFactory.create();
+    }
+
+    private WinningLotto createWinningLotto() {
+        String winningNumbers = InputView.inputWinningNumber();
+        int bonusBall = InputView.inputBonusBall();
+        return WinningLotto.from(winningNumbers, bonusBall);
     }
 }

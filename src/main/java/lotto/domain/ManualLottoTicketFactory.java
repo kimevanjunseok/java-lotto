@@ -8,7 +8,7 @@ public class ManualLottoTicketFactory implements LottoTicketFactory {
 
     private static final String COMMA = ",";
 
-    private List<String> tickets;
+    private final List<String> tickets;
 
     private ManualLottoTicketFactory(List<String> tickets) {
         this.tickets = tickets;

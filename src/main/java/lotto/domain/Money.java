@@ -5,7 +5,7 @@ public class Money {
     private static final int MONEY_UNIT = 1_000;
     private static final int PERCENT = 100;
 
-    private long money;
+    private final long money;
 
     private Money(long money) {
         validate(money);

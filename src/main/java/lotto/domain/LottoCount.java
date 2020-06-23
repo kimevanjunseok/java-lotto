@@ -2,7 +2,7 @@ package lotto.domain;
 
 public class LottoCount {
 
-    private int count;
+    private final int count;
 
     private LottoCount(int count) {
         validateNegative(count);

@@ -5,8 +5,8 @@ import java.util.Map;
 
 public class LottoResult {
 
-    private Map<RankType, Integer> countRankType;
-    private Money money;
+    private final Map<RankType, Integer> countRankType;
+    private final Money money;
 
     public LottoResult(Map<RankType, Integer> countRankType, Money money) {
         this.countRankType = new HashMap<>(countRankType);

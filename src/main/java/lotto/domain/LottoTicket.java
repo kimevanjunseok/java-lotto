@@ -1,20 +1,28 @@
 package lotto.domain;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 public class LottoTicket {
+
+    private static final int LOTTO_TICKET_SIZE = 6;
 
     private final List<LottoNumber> ticket;
 
     private LottoTicket(List<LottoNumber> ticket) {
         validateSize(ticket);
+        validateDuplicateNumber(ticket);
         this.ticket = new ArrayList<>(ticket);
     }
 
     private static void validateSize(List<LottoNumber> ticket) {
-        if (ticket.size() != 6) {
+        if (ticket.size() != LOTTO_TICKET_SIZE) {
+            throw new IllegalArgumentException();
+        }
+    }
+
+    private void validateDuplicateNumber(List<LottoNumber> ticket) {
+        Set<LottoNumber> notDuplicatedTicket = new HashSet<>(ticket);
+        if (notDuplicatedTicket.size() != LOTTO_TICKET_SIZE) {
             throw new IllegalArgumentException();
         }
     }

@@ -15,7 +15,7 @@ public class LottoCount {
 
     private void validateNegative(int count) {
         if (count < 0) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("0보다 큰 숫자만 가능합니다.");
         }
     }
 

@@ -19,7 +19,7 @@ public class WinningLotto {
 
     private void validateHasBonusBall(LottoTicket winningLotto, LottoNumber bonusBall) {
         if (winningLotto.contains(bonusBall)) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("당첨번호가 보너스볼을 포함하고 있습니다.");
         }
     }
 

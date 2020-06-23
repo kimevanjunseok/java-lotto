@@ -22,14 +22,14 @@ public class Money {
     }
 
     private void validateNegative(long money) {
-        if (money <= 0) {
-            throw new IllegalArgumentException();
+        if (money < 1000) {
+            throw new IllegalArgumentException("돈은 1000원 이상 가능합니다.");
         }
     }
 
     private void validateMoneyUnit(long money) {
         if (money % MONEY_UNIT != 0) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("1000원 단위로 입력 가능합니다.");
         }
     }
 

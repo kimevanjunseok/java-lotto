@@ -16,14 +16,14 @@ public class LottoTicket {
 
     private static void validateSize(List<LottoNumber> ticket) {
         if (ticket.size() != LOTTO_TICKET_SIZE) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("로또 티켓의 사이즈는 6만 가능합니다.");
         }
     }
 
     private void validateDuplicateNumber(List<LottoNumber> ticket) {
         Set<LottoNumber> notDuplicatedTicket = new HashSet<>(ticket);
         if (notDuplicatedTicket.size() != LOTTO_TICKET_SIZE) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("중복된 번호가 있습니다.");
         }
     }
 

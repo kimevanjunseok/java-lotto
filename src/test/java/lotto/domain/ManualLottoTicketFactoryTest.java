@@ -34,8 +34,8 @@ public class ManualLottoTicketFactoryTest {
         List<LottoTicket> expected = Arrays.asList(lottoTicket1, lottoTicket2);
 
         List<String> tickets = Arrays.asList(
-            "1,2,3,4,5,6",
-            "2,3,4,5,6,7"
+            "1, 2, 3, 4, 5, 6",
+            "2, 3, 4, 5, 6, 7"
         );
 
         LottoTicketFactory manualTicketFactory = ManualLottoTicketFactory.from(tickets);

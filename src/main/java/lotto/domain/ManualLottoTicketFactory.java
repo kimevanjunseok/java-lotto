@@ -1,6 +1,7 @@
 package lotto.domain;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -27,9 +28,10 @@ public class ManualLottoTicketFactory implements LottoTicketFactory {
     private LottoTicket ofLottoTicket(String ticket) {
         List<String> splitTicket = Arrays.asList(ticket.split(","));
         List<LottoNumber> lottoTicket = splitTicket.stream()
-                                            .sorted()
-                                            .map(number -> LottoNumber.from(Integer.parseInt(number.trim())))
-                                            .collect(Collectors.toList());
+                .map(String::trim)
+                .map(number -> LottoNumber.from(Integer.parseInt(number)))
+                .sorted()
+                .collect(Collectors.toList());
         return LottoTicket.from(lottoTicket);
     }
 }

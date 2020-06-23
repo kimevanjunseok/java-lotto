@@ -54,6 +54,6 @@ public class OutputView {
     }
 
     private static void printYield(LottoResult lottoResult) {
-        System.out.println("총 수익률은 30%입니다.");
+        System.out.println("총 수익률은 " + lottoResult.getYield() + "%입니다.");
     }
 }

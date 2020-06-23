@@ -20,7 +20,7 @@ public class Money {
     }
 
     private void validateNegative(long money) {
-        if (money < 0) {
+        if (money <= 0) {
             throw new IllegalArgumentException();
         }
     }
@@ -33,5 +33,9 @@ public class Money {
 
     public int calculateAutoCount(int count) {
         return (int) (money / MONEY_UNIT) - count;
+    }
+
+    public long calculateYield(long totalPrize) {
+        return totalPrize * 100 / money;
     }
 }

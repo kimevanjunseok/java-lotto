@@ -18,7 +18,7 @@ public class LottoResultTest {
         countRankType.put(RankType.FOURTH, 1);
         countRankType.put(RankType.FIFTH, 1);
         countRankType.put(RankType.NONE, 10);
-        LottoResult lottoResult = LottoResult.from(countRankType);
-        assertThat(lottoResult.calculateTotalPrize()).isEqualTo(2_030_055_000L);
+        LottoResult lottoResult = LottoResult.of(countRankType, Money.from(1_000L));
+        assertThat(lottoResult.getYield()).isEqualTo(2_030_055_00L);
     }
 }

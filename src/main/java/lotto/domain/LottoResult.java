@@ -17,4 +17,12 @@ public class LottoResult {
     public int getRankCount(RankType type) {
         return countRankType.get(type);
     }
+
+    public long calculateTotalPrize() {
+        long sumPrize = 0L;
+        for (RankType type : RankType.values()) {
+            sumPrize += type.getPrize() * countRankType.get(type);
+        }
+        return sumPrize;
+    }
 }

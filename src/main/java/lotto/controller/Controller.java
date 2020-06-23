@@ -25,11 +25,19 @@ public class Controller {
     }
 
     private LottoTickets createLottoTickets(Count manualCount, Count autoCount) {
+        List<LottoTicket> manualLottoTickets = createManualTickets(manualCount);
+        List<LottoTicket> autoLottoTickets = createAutoTickets(autoCount);
+        return LottoTickets.of(manualLottoTickets, autoLottoTickets);
+    }
+
+    private List<LottoTicket> createManualTickets(Count manualCount) {
         List<String> manualTickets = InputView.inputManualLotto(manualCount);
         LottoTicketFactory manualFactory = ManualLottoTicketFactory.from(manualTickets);
+        return manualFactory.create();
+    }
+
+    private List<LottoTicket> createAutoTickets(Count autoCount) {
         LottoTicketFactory autoFactory = AutoLottoTicketFactory.from(autoCount);
-        List<LottoTicket> manualLottoTickets = manualFactory.create();
-        List<LottoTicket> autoLottoTickets = autoFactory.create();
-        return LottoTickets.of(manualLottoTickets, autoLottoTickets);
+        return autoFactory.create();
     }
 }

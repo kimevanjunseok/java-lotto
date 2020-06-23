@@ -21,15 +21,15 @@ public class Controller {
         Count manualCount = Count.from(InputView.inputManualCount());
         Count autoCount = Count.from(manualCount.calculateAutoCount(money));
 
-        List<LottoTicket> lottoTickets = createLottoTickets(manualCount, autoCount);
+        LottoTickets lottoTickets = createLottoTickets(manualCount, autoCount);
     }
 
-    private List<LottoTicket> createLottoTickets(Count manualCount, Count autoCount) {
+    private LottoTickets createLottoTickets(Count manualCount, Count autoCount) {
         List<String> manualTickets = InputView.inputManualLotto(manualCount);
         LottoTicketFactory manualFactory = ManualLottoTicketFactory.from(manualTickets);
         LottoTicketFactory autoFactory = AutoLottoTicketFactory.from(autoCount);
         List<LottoTicket> manualLottoTickets = manualFactory.create();
         List<LottoTicket> autoLottoTickets = autoFactory.create();
-        return null;
+        return LottoTickets.of(manualLottoTickets, autoLottoTickets);
     }
 }

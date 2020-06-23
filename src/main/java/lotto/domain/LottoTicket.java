@@ -13,14 +13,18 @@ public class LottoTicket {
         this.ticket = new ArrayList<>(ticket);
     }
 
-    public static LottoTicket from(List<LottoNumber> ticket) {
-        return new LottoTicket(ticket);
-    }
-
     private static void validateSize(List<LottoNumber> ticket) {
         if (ticket.size() != 6) {
             throw new IllegalArgumentException();
         }
+    }
+
+    public static LottoTicket from(List<LottoNumber> ticket) {
+        return new LottoTicket(ticket);
+    }
+
+    public boolean contains(LottoNumber lottoNumber) {
+        return ticket.contains(lottoNumber);
     }
 
     @Override

@@ -10,8 +10,15 @@ public class WinningLotto {
     private final LottoNumber bonusBall;
 
     private WinningLotto(LottoTicket winningLotto, LottoNumber bonusBall) {
+        validateHasBonusBall(winningLotto, bonusBall);
         this.winningLotto = winningLotto;
         this.bonusBall = bonusBall;
+    }
+
+    private void validateHasBonusBall(LottoTicket winningLotto, LottoNumber bonusBall) {
+        if (winningLotto.contains(bonusBall)) {
+            throw new IllegalArgumentException();
+        }
     }
 
     public static WinningLotto from(String winningNumbers, int bonusBall) {

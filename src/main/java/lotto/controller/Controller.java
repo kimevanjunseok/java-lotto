@@ -2,6 +2,7 @@ package lotto.controller;
 
 import lotto.domain.*;
 import lotto.view.InputView;
+import lotto.view.OutputView;
 
 import java.util.List;
 
@@ -18,26 +19,27 @@ public class Controller {
 
     public void execute() {
         Money money = Money.from(InputView.inputMoney());
-        Count manualCount = Count.from(InputView.inputManualCount());
-        Count autoCount = Count.from(manualCount.calculateAutoCount(money));
+        Count manual = Count.from(InputView.inputManualCount());
+        Count auto = Count.from(manual.calculateAutoCount(money));
 
-        LottoTickets lottoTickets = createLottoTickets(manualCount, autoCount);
+        LottoTickets lottoTickets = createLottoTickets(manual, auto);
+        OutputView.printLottoTickets(manual, auto, lottoTickets);
     }
 
-    private LottoTickets createLottoTickets(Count manualCount, Count autoCount) {
-        List<LottoTicket> manualLottoTickets = createManualTickets(manualCount);
-        List<LottoTicket> autoLottoTickets = createAutoTickets(autoCount);
+    private LottoTickets createLottoTickets(Count manual, Count auto) {
+        List<LottoTicket> manualLottoTickets = createManualTickets(manual);
+        List<LottoTicket> autoLottoTickets = createAutoTickets(auto);
         return LottoTickets.of(manualLottoTickets, autoLottoTickets);
     }
 
-    private List<LottoTicket> createManualTickets(Count manualCount) {
-        List<String> manualTickets = InputView.inputManualLotto(manualCount);
+    private List<LottoTicket> createManualTickets(Count manual) {
+        List<String> manualTickets = InputView.inputManualLotto(manual);
         LottoTicketFactory manualFactory = ManualLottoTicketFactory.from(manualTickets);
         return manualFactory.create();
     }
 
-    private List<LottoTicket> createAutoTickets(Count autoCount) {
-        LottoTicketFactory autoFactory = AutoLottoTicketFactory.from(autoCount);
+    private List<LottoTicket> createAutoTickets(Count auto) {
+        LottoTicketFactory autoFactory = AutoLottoTicketFactory.from(auto);
         return autoFactory.create();
     }
 }

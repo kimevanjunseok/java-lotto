@@ -24,7 +24,6 @@ public class AutoLottoTicketFactory implements LottoTicketFactory {
         for (int count = 0; count < this.count.getCount(); count++) {
             lottoTickets.add(LottoTicket.from(createTicket()));
         }
-        System.out.println(lottoTickets.toString());
         return lottoTickets;
     }
 

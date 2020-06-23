@@ -17,4 +17,8 @@ public class LottoTickets {
         lottoTickets.addAll(new ArrayList<>(autoTickets));
         return new LottoTickets(lottoTickets);
     }
+
+    public List<LottoTicket> getLottoTickets() {
+        return lottoTickets;
+    }
 }

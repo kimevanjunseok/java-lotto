@@ -8,20 +8,20 @@ import java.util.stream.IntStream;
 
 public class AutoLottoTicketFactory implements LottoTicketFactory {
 
-    private final int count;
+    private final Count count;
 
-    private AutoLottoTicketFactory(int count) {
+    private AutoLottoTicketFactory(Count count) {
         this.count = count;
     }
 
-    public static AutoLottoTicketFactory from(int count) {
+    public static AutoLottoTicketFactory from(Count count) {
         return new AutoLottoTicketFactory(count);
     }
 
     @Override
     public List<LottoTicket> create() {
         List<LottoTicket> lottoTickets = new ArrayList<>();
-        for (int count = 0; count < this.count; count++) {
+        for (int count = 0; count < this.count.getCount(); count++) {
             lottoTickets.add(LottoTicket.from(createTicket()));
         }
         System.out.println(lottoTickets.toString());
@@ -39,6 +39,5 @@ public class AutoLottoTicketFactory implements LottoTicketFactory {
                 .sorted()
                 .map(LottoNumber::from)
                 .collect(Collectors.toList());
-
     }
 }

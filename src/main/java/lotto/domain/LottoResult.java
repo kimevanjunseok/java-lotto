@@ -1,5 +1,6 @@
 package lotto.domain;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class LottoResult {
@@ -8,7 +9,7 @@ public class LottoResult {
     private Money money;
 
     public LottoResult(Map<RankType, Integer> countRankType, Money money) {
-        this.countRankType = countRankType;
+        this.countRankType = new HashMap<>(countRankType);
         this.money = money;
     }
 

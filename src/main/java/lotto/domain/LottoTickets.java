@@ -10,7 +10,7 @@ public class LottoTickets {
     private final List<LottoTicket> lottoTickets;
 
     private LottoTickets(List<LottoTicket> lottoTickets) {
-        this.lottoTickets = lottoTickets;
+        this.lottoTickets = new ArrayList<>(lottoTickets);
     }
 
     public static LottoTickets from(List<LottoTicket> tickets) {

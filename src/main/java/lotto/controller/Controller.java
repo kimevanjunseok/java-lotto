@@ -1,10 +1,12 @@
 package lotto.controller;
 
+import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
 import lotto.domain.*;
 import lotto.view.InputView;
 import lotto.view.OutputView;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
@@ -47,12 +49,12 @@ public class Controller {
     private List<LottoTicket> createManualTickets(LottoCount manual) {
         List<String> manualTickets = InputView.inputManualLotto(manual);
         LottoTicketFactory manualFactory = ManualLottoTicketFactory.from(manualTickets);
-        return manualFactory.create();
+        return Collections.unmodifiableList(manualFactory.create());
     }
 
     private List<LottoTicket> createAutoTickets(LottoCount auto) {
         LottoTicketFactory autoFactory = AutoLottoTicketFactory.from(auto);
-        return autoFactory.create();
+        return Collections.unmodifiableList(autoFactory.create());
     }
 
     private WinningLotto createWinningLotto() {

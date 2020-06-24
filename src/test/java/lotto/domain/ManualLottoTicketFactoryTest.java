@@ -11,25 +11,8 @@ public class ManualLottoTicketFactoryTest {
 
     @Test
     void create() {
-        List<LottoNumber> ticket1 = Arrays.asList(
-            LottoNumber.from(1),
-            LottoNumber.from(2),
-            LottoNumber.from(3),
-            LottoNumber.from(4),
-            LottoNumber.from(5),
-            LottoNumber.from(6)
-        );
-        List<LottoNumber> ticket2 = Arrays.asList(
-            LottoNumber.from(2),
-            LottoNumber.from(3),
-            LottoNumber.from(4),
-            LottoNumber.from(5),
-            LottoNumber.from(6),
-            LottoNumber.from(7)
-        );
-
-        LottoTicket lottoTicket1 = LottoTicket.from(ticket1);
-        LottoTicket lottoTicket2 = LottoTicket.from(ticket2);
+        LottoTicket lottoTicket1 = LottoTicketUtil.getLottoTicket(1);
+        LottoTicket lottoTicket2 = LottoTicketUtil.getLottoTicket(2);
 
         List<LottoTicket> expected = Arrays.asList(lottoTicket1, lottoTicket2);
 

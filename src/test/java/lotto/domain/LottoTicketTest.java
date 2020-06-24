@@ -10,21 +10,12 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 public class LottoTicketTest {
-    
+
     private LottoTicket lottoTicket;
-    
+
     @BeforeEach
     void setUp() {
-        List<LottoNumber> ticket = Arrays.asList(
-                LottoNumber.from(1),
-                LottoNumber.from(2),
-                LottoNumber.from(3),
-                LottoNumber.from(4),
-                LottoNumber.from(5),
-                LottoNumber.from(6)
-        );
-        
-        lottoTicket = LottoTicket.from(ticket);
+        lottoTicket = LottoTicketUtil.getLottoTicket(1);
     }
 
     @Test
@@ -81,16 +72,8 @@ public class LottoTicketTest {
 
     @Test
     void matchCount() {
-        List<LottoNumber> ticket = Arrays.asList(
-                LottoNumber.from(4),
-                LottoNumber.from(5),
-                LottoNumber.from(6),
-                LottoNumber.from(7),
-                LottoNumber.from(8),
-                LottoNumber.from(9)
-        );
+        LottoTicket comparisonValue = LottoTicketUtil.getLottoTicket(4);
 
-        LottoTicket comparisonValue = LottoTicket.from(ticket);
         assertThat(lottoTicket.matchCount(comparisonValue)).isEqualTo(3);
     }
 }

@@ -15,16 +15,7 @@ public class WinningLottoTest {
 
     @BeforeEach
     void setUp() {
-        List<LottoNumber> ticket = Arrays.asList(
-                LottoNumber.from(1),
-                LottoNumber.from(2),
-                LottoNumber.from(3),
-                LottoNumber.from(4),
-                LottoNumber.from(5),
-                LottoNumber.from(6)
-        );
-
-        lottoTicket = LottoTicket.from(ticket);
+        lottoTicket = LottoTicketUtil.getLottoTicket(1);
     }
 
     @Test

@@ -29,7 +29,10 @@ public enum RankType {
 
     private boolean isCorrectRank(LottoTicket lottoTicket, WinningLotto winningLotto) {
         int match = winningLotto.getMatchCount(lottoTicket);
-        boolean bonus = winningLotto.hasBonusByLottoTicket(lottoTicket);
+        boolean bonus = false;
+        if (match == RankType.SECOND.match) {
+            bonus = winningLotto.hasBonusByLottoTicket(lottoTicket);
+        }
         return this.match == match && this.bonus == bonus;
     }
 

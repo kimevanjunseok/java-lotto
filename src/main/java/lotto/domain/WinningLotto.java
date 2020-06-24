@@ -23,7 +23,7 @@ public class WinningLotto {
         }
     }
 
-    public static WinningLotto from(String winningNumbers, int bonusBall) {
+    public static WinningLotto of(String winningNumbers, int bonusBall) {
         List<String> lottoNumbers = Arrays.asList(winningNumbers.split(COMMA));
         List<LottoNumber> ticket = lottoNumbers.stream()
                 .map(String::trim)

@@ -19,4 +19,16 @@ public class LottoCountTest {
         LottoCount lottoCount = LottoCount.from(3);
         assertThat(lottoCount.calculateAutoCount(money)).isEqualTo(7);
     }
+
+    @Test
+    void isNotZero_True() {
+        LottoCount lottoCount = LottoCount.from(3);
+        assertThat(lottoCount.isNotZero()).isTrue();
+    }
+
+    @Test
+    void isNotZero_False() {
+        LottoCount lottoCount = LottoCount.from(0);
+        assertThat(lottoCount.isNotZero()).isFalse();
+    }
 }

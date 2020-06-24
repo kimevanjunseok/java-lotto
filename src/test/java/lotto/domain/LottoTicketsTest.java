@@ -35,7 +35,7 @@ public class LottoTicketsTest {
                 LottoTicket.from(lottoNumbers2)
         );
 
-        WinningLotto winningLotto = WinningLotto.from("1, 2, 3, 4, 5, 6", 7);
+        WinningLotto winningLotto = WinningLotto.of("1, 2, 3, 4, 5, 6", 7);
         LottoTickets tickets = LottoTickets.from(lottoTickets);
 
         Map<RankType, Integer> countRankType = tickets.matchCountAll(winningLotto);

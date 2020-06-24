@@ -32,6 +32,12 @@ public class MoneyTest {
     }
 
     @Test
+    void create() {
+        Money money = Money.from(10000);
+        assertThat(money).isNotNull();
+    }
+
+    @Test
     void calculateAutoCount() {
         assertThat(money.calculateAutoCount(3)).isEqualTo(7);
     }

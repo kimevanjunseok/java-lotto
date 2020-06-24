@@ -9,7 +9,7 @@ import java.util.List;
 
 public class Controller {
 
-    private static Controller controller = new Controller();
+    private static final Controller controller = new Controller();
 
     private Controller() {}
 
@@ -30,7 +30,7 @@ public class Controller {
             LottoResult lottoResult = LottoResult.of(lottoTickets.matchCountAll(winningLotto) ,money);
             OutputView.printLottoResult(lottoResult);
         } catch (IllegalArgumentException e) {
-            System.err.println(e.getMessage());
+            System.err.println(e.toString());
         }
     }
 
@@ -57,6 +57,6 @@ public class Controller {
     private WinningLotto createWinningLotto() {
         String winningNumbers = InputView.inputWinningNumber();
         int bonusBall = InputView.inputBonusBall();
-        return WinningLotto.from(winningNumbers, bonusBall);
+        return WinningLotto.of(winningNumbers, bonusBall);
     }
 }

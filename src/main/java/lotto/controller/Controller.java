@@ -18,16 +18,20 @@ public class Controller {
     }
 
     public void execute() {
-        Money money = Money.from(InputView.inputMoney());
-        LottoCount manual = LottoCount.from(InputView.inputManualCount());
-        LottoCount auto = LottoCount.from(manual.calculateAutoCount(money));
+        try {
+            Money money = Money.from(InputView.inputMoney());
+            LottoCount manual = LottoCount.from(InputView.inputManualCount());
+            LottoCount auto = LottoCount.from(manual.calculateAutoCount(money));
 
-        LottoTickets lottoTickets = createLottoTickets(manual, auto);
-        OutputView.printLottoTickets(manual, auto, lottoTickets);
+            LottoTickets lottoTickets = createLottoTickets(manual, auto);
+            OutputView.printLottoTickets(manual, auto, lottoTickets);
 
-        WinningLotto winningLotto = createWinningLotto();
-        LottoResult lottoResult = LottoResult.of(lottoTickets.matchCountAll(winningLotto) ,money);
-        OutputView.printLottoResult(lottoResult);
+            WinningLotto winningLotto = createWinningLotto();
+            LottoResult lottoResult = LottoResult.of(lottoTickets.matchCountAll(winningLotto) ,money);
+            OutputView.printLottoResult(lottoResult);
+        } catch (IllegalArgumentException e) {
+            System.err.println(e.getMessage());
+        }
     }
 
     private LottoTickets createLottoTickets(LottoCount manual, LottoCount auto) {

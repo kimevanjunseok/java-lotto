@@ -9,6 +9,7 @@ public class LottoTicket {
     private final List<LottoNumber> ticket;
 
     private LottoTicket(List<LottoNumber> ticket) {
+        Objects.requireNonNull(ticket, "Null 감지");
         validateSize(ticket);
         validateDuplicateNumber(ticket);
         this.ticket = new ArrayList<>(ticket);

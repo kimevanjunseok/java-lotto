@@ -2,13 +2,16 @@ package lotto.domain;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 public class LottoResult {
 
     private final Map<RankType, Integer> countRankType;
     private final Money money;
 
-    public LottoResult(Map<RankType, Integer> countRankType, Money money) {
+    private LottoResult(Map<RankType, Integer> countRankType, Money money) {
+        Objects.requireNonNull(countRankType, "Null 감지");
+        Objects.requireNonNull(money, "Null 감지");
         this.countRankType = new HashMap<>(countRankType);
         this.money = money;
     }

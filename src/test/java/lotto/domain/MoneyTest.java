@@ -50,6 +50,6 @@ public class MoneyTest {
 
     @Test
     void calculateYield() {
-        assertThat(money.calculateYield(120_000L)).isEqualTo(1_200L);
+        assertThat(money.calculateYield(120_000L)).isEqualTo(1_100L);
     }
 }

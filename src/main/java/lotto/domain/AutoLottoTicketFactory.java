@@ -3,6 +3,7 @@ package lotto.domain;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -15,6 +16,7 @@ public class AutoLottoTicketFactory implements LottoTicketFactory {
     private final LottoCount lottoCount;
 
     private AutoLottoTicketFactory(LottoCount lottoCount) {
+        Objects.requireNonNull(lottoCount, "Null 감지");
         this.lottoCount = lottoCount;
     }
 

@@ -2,6 +2,7 @@ package lotto.domain;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 public class ManualLottoTicketFactory implements LottoTicketFactory {
@@ -11,6 +12,7 @@ public class ManualLottoTicketFactory implements LottoTicketFactory {
     private final List<String> tickets;
 
     private ManualLottoTicketFactory(List<String> tickets) {
+        Objects.requireNonNull(tickets, "Null 감지");
         this.tickets = tickets;
     }
 

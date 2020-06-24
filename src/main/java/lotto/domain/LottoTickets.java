@@ -7,11 +7,8 @@ public class LottoTickets {
     private final List<LottoTicket> lottoTickets;
 
     private LottoTickets(List<LottoTicket> lottoTickets) {
+        Objects.requireNonNull(lottoTickets, "Null 감지");
         this.lottoTickets = new ArrayList<>(lottoTickets);
-    }
-
-    public static LottoTickets from(List<LottoTicket> tickets) {
-        return new LottoTickets(tickets);
     }
 
     public static LottoTickets of(List<LottoTicket> manualTickets, List<LottoTicket> autoTickets) {

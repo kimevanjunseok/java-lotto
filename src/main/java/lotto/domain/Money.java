@@ -1,5 +1,7 @@
 package lotto.domain;
 
+import java.util.Objects;
+
 public class Money {
 
     private static final int MONEY_UNIT = 1_000;
@@ -42,6 +44,6 @@ public class Money {
     }
 
     public long calculateYield(long totalPrize) {
-        return totalPrize * PERCENT / money;
+        return (totalPrize - money) * PERCENT / money;
     }
 }

@@ -6,6 +6,7 @@ import lotto.view.OutputView;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Controller {
 
@@ -29,7 +30,7 @@ public class Controller {
             WinningLotto winningLotto = createWinningLotto();
             LottoResult lottoResult = LottoResult.of(lottoTickets.matchCountAll(winningLotto) ,money);
             OutputView.printLottoResult(lottoResult);
-        } catch (IllegalArgumentException e) {
+        } catch (IllegalArgumentException | NullPointerException e) {
             System.err.println(e.toString());
         }
     }

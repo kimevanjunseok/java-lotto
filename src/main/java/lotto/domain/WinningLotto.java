@@ -2,6 +2,7 @@ package lotto.domain;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 public class WinningLotto {
@@ -12,6 +13,8 @@ public class WinningLotto {
     private final LottoNumber bonusBall;
 
     private WinningLotto(LottoTicket winningLotto, LottoNumber bonusBall) {
+        Objects.requireNonNull(winningLotto, "Null 감지");
+        Objects.requireNonNull(bonusBall, "Null 감지");
         validateHasBonusBall(winningLotto, bonusBall);
         this.winningLotto = winningLotto;
         this.bonusBall = bonusBall;
